@@ -80,13 +80,13 @@ class rvm::passenger::apache(
           $apache_mods_path = '/etc/httpd/conf.d'
         }
       }
-      exec { 'copy passenger_extra.conf to passenger.conf':
-        command     => "/bin/cp ${apache_mods_path}/passenger_extra.conf ${apache_mods_path}/passenger.conf",
-        unless      => "/usr/bin/diff ${apache_mods_path}/passenger_extra.conf ${apache_mods_path}/passenger.conf",
-        environment => [ 'HOME=/root', ],
-        path        => '/usr/bin:/usr/sbin:/bin',
-        require     => Class['apache::mod::passenger'],
-      }
+      # exec { 'copy passenger_extra.conf to passenger.conf':
+      #   command     => "/bin/cp ${apache_mods_path}/passenger_extra.conf ${apache_mods_path}/passenger.conf",
+      #   unless      => "/usr/bin/diff ${apache_mods_path}/passenger_extra.conf ${apache_mods_path}/passenger.conf",
+      #   environment => [ 'HOME=/root', ],
+      #   path        => '/usr/bin:/usr/sbin:/bin',
+      #   require     => Class['apache::mod::passenger'],
+      # }
     }
     default: {}
   }
